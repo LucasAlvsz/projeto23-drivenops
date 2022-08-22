@@ -6,8 +6,6 @@ services:
         restart: always
         ports:
             - "1234:5432"
-        env_file:
-            - ./back-end/.env.test
 
     node_github-ci:
         container_name: node_github-ci
@@ -18,5 +16,3 @@ services:
             - 5000:5000
         depends_on:
             - database_github-ci
-        env_file:
-            - ./back-end/.env.test
