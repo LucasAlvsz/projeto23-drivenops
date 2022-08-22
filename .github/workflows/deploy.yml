@@ -29,8 +29,5 @@ jobs:
                   file: .env
                   fail_on_empty_file: true
 
-            - name: Build
-              run: docker-compose build
-
             - name: Run
-              run: docker-compose down && docker-compose up -d
+              run: docker-compose down && docker-compose up --build -d
