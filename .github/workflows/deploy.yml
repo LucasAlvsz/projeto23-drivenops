@@ -30,4 +30,4 @@ jobs:
                   fail_on_empty_file: true
 
             - name: Run
-              run: docker-compose down && docker-compose up --build -d
+              run: docker-compose down -v && docker-compose up --build -d
