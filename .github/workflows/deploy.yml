@@ -10,7 +10,7 @@ jobs:
         steps:
             - name: Check out repository code
               uses: actions/checkout@v3
-            - name: Craete back-end env file
+            - name: Create back-end env file
               uses: SpicyPizza/create-envfile@v1.3
               with:
                   envkey_POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
@@ -21,7 +21,7 @@ jobs:
                   file: .env
                   fail_on_empty_file: true
 
-            - name: Craete front-end env file
+            - name: Create front-end env file
               uses: SpicyPizza/create-envfile@v1.3
               with:
                   envkey_REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}

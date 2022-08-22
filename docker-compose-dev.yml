@@ -1,0 +1,35 @@
+version: "3"
+services:
+    postgres_db_dev:
+        image: postgres
+        container_name: postgres_db_dev
+        restart: always
+        ports:
+            - "1234:5432"
+        env_file:
+            - ./back-end/.env
+        volumes:
+            - volume_db_dev:/var/lib/postgresql/data
+
+    node_dev:
+        container_name: node_dev
+        build:
+            context: .
+            dockerfile: ./back-end/dev.Dockerfile
+        ports:
+            - 5000:5000
+        depends_on:
+            - postgres_db_dev
+        env_file:
+            - ./back-end/.env
+
+    react_app_dev:
+        container_name: react_app_dev
+        build:
+            context: .
+            dockerfile: ./front-end/dev.Dockerfile
+        env_file:
+            - ./front-end/.env
+
+volumes:
+    volume_db_dev:
