@@ -13,7 +13,9 @@ services:
 
     node_dev:
         container_name: node_dev
-        build: ./back-end
+        build:
+            context: .
+            dockerfile: ./back-end/dev.Dockerfile
         ports:
             - 5000:5000
         depends_on:
@@ -23,7 +25,13 @@ services:
 
     react_app_dev:
         container_name: react_app_dev
-        build: ./front-end
+        build:
+            context: .
+            dockerfile: ./front-end/dev.Dockerfile
+        ports:
+            - 3000:3000
+        depends_on:
+            - postgres_db_dev
 
 volumes:
     volume_db:
