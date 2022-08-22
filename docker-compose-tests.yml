@@ -9,9 +9,7 @@ services:
 
     node_github-ci:
         container_name: node_github-ci
-        build:
-            context: .
-            dockerfile: ./back-end/tests.Dockerfile
+        build: ./back-end
         ports:
             - 5000:5000
         depends_on:
