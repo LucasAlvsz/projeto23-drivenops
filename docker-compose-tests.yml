@@ -7,14 +7,16 @@ services:
         ports:
             - "1234:5432"
         env_file:
-            - .env.test
+            - ./back-end/.env.test
 
     node_github-ci:
         container_name: node_github-ci
-        build: ./back-end/tests
+        build:
+            context: .
+            dockerfile: ./back-end/tests.Dockerfile
         ports:
             - 5000:5000
         depends_on:
             - database_github-ci
         env_file:
-            - .env.test
+            - ./back-end/.env.test
