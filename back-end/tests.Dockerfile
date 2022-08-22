@@ -2,7 +2,7 @@ FROM node:16
 
 WORKDIR /usr/src/
 
-COPY . .
+COPY ./back-end/ ./usr/src/ 
 
 EXPOSE 5000
 
